@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+
+# VASP heavy/generated outputs
+WAVECAR
+CHGCAR
+CHG
+vasprun.xml
+OUTCAR
+XDATCAR
+PCDAT
+DOSCAR
+EIGENVAL
+IBZKPT
+REPORT
+OSZICAR
+CONTCAR
+
+# Scheduler logs
+slurm-*.out
+slurm-*.err
+*.out
+*.err
+
+# Generated analysis products
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.dat
+equilibrium_analysis_report.txt
+audit.csv
+
+# Local scratch/restart folders
+OLD_*/
+chunk_*/
