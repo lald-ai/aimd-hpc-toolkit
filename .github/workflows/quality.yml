@@ -1,0 +1,25 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import py_compile
+          for path in Path('.').rglob('*.py'):
+              py_compile.compile(str(path), doraise=True)
+          PY
+      - name: Check shell syntax
+        run: |
+          find . -type f -name '*.sh' -print0 | while IFS= read -r -d '' f; do bash -n "$f"; done
